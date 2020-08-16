@@ -17,6 +17,12 @@ public class Demo1Application {
       return "Hello World!";
     }
 	
+	@RequestMapping("/test3")
+    @ResponseBody
+    String home3() {
+      return "Hello World!3";
+    }
+	
 	@RequestMapping("/test2")
     @ResponseBody
     String home2() {
