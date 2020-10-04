@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 public class Demo1Application {
 
+	@Autowired
+	SingInRepository rep ;
 	
 	@RequestMapping("/test")
     @ResponseBody
@@ -19,11 +24,11 @@ public class Demo1Application {
 	
 	@RequestMapping("/test3")
     @ResponseBody
-    String home3() {
-      return "Hello World!3";
+    List<?> home3() {
+      return rep.getSingInByUserName();
     }
 	
-	@RequestMapping("/test2")
+	@RequestMapping("/")
     @ResponseBody
     String home2() {
       return "Hello World!2";
